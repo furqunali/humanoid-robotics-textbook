@@ -1,60 +1,21 @@
-import---
+---
 sidebar_position: 1
 ---
 
-# Tutorial Intro
+import Chatbot from '@site/src/components/Chatbot';
 
-Let's discover **Docusaurus in less than 5 minutes**.
+# Module 1: Physical AI Foundations
 
-## Getting Started
+Welcome to the future of Humanoid Robotics. This textbook covers the essentials of AI and Robotics.
 
-Get started by **creating a new site**.
+## Interactive Learning
+Use our AI Assistant below to ask questions about this module.
 
-Or **try Docusaurus immediately** with **[docusaurus.new](https://docusaurus.new)**.
-
-### What you'll need
-
-- [Node.js](https://nodejs.org/en/download/) version 20.0 or above:
-  - When installing Node.js, you are recommended to check all checkboxes related to dependencies.
-
-## Generate a new site
-
-Generate a new Docusaurus site using the **classic template**.
-
-The classic template will automatically be added to your project after you run the command:
-
-```bash
-npm init docusaurus@latest my-website classic
-```
-
-You can type this command into Command Prompt, Powershell, Terminal, or any other integrated terminal of your code editor.
-
-The command also installs all necessary dependencies you need to run Docusaurus.
-
-## Start your site
-
-Run the development server:
-
-```bash
-cd my-website
-npm run start
-```
-
-The `cd` command changes the directory you're working with. In order to work with your newly created Docusaurus site, you'll need to navigate the terminal there.
-
-The `npm run start` command builds your website locally and serves it through a development server, ready for you to view at http://localhost:3000/.
-
-Open `docs/intro.md` (this page) and edit some lines: the site **reloads automatically** and displays your changes.
----
-
-sidebar_position: 1
+<Chatbot />
 
 ---
 
-import Chatbot from '@site/src/components/Chatbot'; <-- (Yahan Import)
-
-# Module 1: Introduction
-
-Welcome to the robotics course...
-
-<Chatbot /> <-- (Yahan Box nazar aayega)
+### Key Concepts
+* **Actuators:** The muscles of the robot.
+* **Sensors:** The eyes and ears of the robot.
+* **Control Systems:** The brain that processes information.
