@@ -1,17 +1,38 @@
-﻿from qdrant_client import QdrantClient
-from qdrant_client.models import VectorParams, Distance
+"""Provision the Qdrant collection used by the textbook ingestion pipeline.
 
-URL = "https://b004b73a-fa64-45d4-b318-7881889680aa.europe-west3-0.gcp.cloud.qdrant.io"
-KEY = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJhY2Nlc3MiOiJtIn0.2cZN0dHlsD7TaaVHXVgUtHk-ttl6kztFjebhlI2KW8Y"
+Credentials are supplied through environment variables so secrets are never
+stored in source control.
+"""
 
-client = QdrantClient(url=URL, api_key=KEY)
+from __future__ import annotations
 
-def setup_db():
+import os
+
+from qdrant_client import QdrantClient
+from qdrant_client.models import Distance, VectorParams
+
+COLLECTION_NAME = "robotics_textbook"
+VECTOR_SIZE = 1536
+
+
+def build_client() -> QdrantClient:
+    """Build a Qdrant client from the runtime environment."""
+    url = os.environ.get("QDRANT_URL")
+    api_key = os.environ.get("QDRANT_API_KEY")
+    if not url:
+        raise RuntimeError("QDRANT_URL is required")
+    if not api_key:
+        raise RuntimeError("QDRANT_API_KEY is required")
+    return QdrantClient(url=url, api_key=api_key)
+
+
+def setup_db(client: QdrantClient) -> None:
+    """Create the textbook collection with the configured vector schema."""
     client.recreate_collection(
-        collection_name="robotics_textbook",
-        vectors_config=VectorParams(size=1536, distance=Distance.COSINE),
+        collection_name=COLLECTION_NAME,
+        vectors_config=VectorParams(size=VECTOR_SIZE, distance=Distance.COSINE),
     )
-    print("✅ Collection 'robotics_textbook' created successfully!")
+
 
 if __name__ == "__main__":
-    setup_db()
+    setup_db(build_client())
