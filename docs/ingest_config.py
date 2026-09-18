@@ -4,6 +4,7 @@ from __future__ import annotations
 
 import os
 from dataclasses import dataclass
+from urllib.parse import urlparse
 
 
 @dataclass(frozen=True)
@@ -19,4 +20,9 @@ def load_config() -> IngestConfig:
     api_key = os.getenv("QDRANT_API_KEY", "").strip()
     if not url or not api_key:
         raise RuntimeError("QDRANT_URL and QDRANT_API_KEY are required")
+    parsed = urlparse(url)
+    if parsed.scheme not in {"http", "https"} or not parsed.netloc:
+        raise ValueError("QDRANT_URL must be a valid HTTP(S) URL")
+    if not api_key:
+        raise RuntimeError("QDRANT_API_KEY is required")
     return IngestConfig(qdrant_url=url, qdrant_api_key=api_key)
