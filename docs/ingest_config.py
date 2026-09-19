@@ -23,7 +23,8 @@ def load_config() -> IngestConfig:
     vector_size_raw = os.getenv("QDRANT_VECTOR_SIZE", "1536").strip()
     if not url or not api_key: raise RuntimeError("QDRANT_URL and QDRANT_API_KEY are required")
     parsed = urlparse(url)
-    if parsed.scheme not in {"http", "https"} or not parsed.netloc: raise ValueError("QDRANT_URL must be a valid HTTP(S) URL")
+    if parsed.scheme not in {"http", "https"} or not parsed.netloc or not parsed.hostname: raise ValueError("QDRANT_URL must be a valid HTTP(S) URL")
+    if parsed.username or parsed.password: raise ValueError("QDRANT_URL must not include embedded credentials")
     if not _COLLECTION_NAME.fullmatch(collection_name): raise ValueError("QDRANT_COLLECTION must be 1-63 characters and contain only letters, numbers, hyphens, and underscores")
     try: vector_size = int(vector_size_raw)
     except ValueError as exc: raise ValueError("QDRANT_VECTOR_SIZE must be an integer") from exc
