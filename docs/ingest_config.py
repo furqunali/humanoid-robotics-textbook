@@ -34,5 +34,7 @@ def validate_source_url(url: str) -> str:
     """Validate and normalize an ingestion source URL."""
     value = (url or "").strip()
     parsed = urlparse(value)
-    if parsed.scheme not in {"http", "https"} or not parsed.netloc: raise ValueError("source URL must be a valid HTTP(S) URL")
+    if parsed.scheme not in {"http", "https"} or not parsed.netloc or not parsed.hostname: raise ValueError("source URL must be a valid HTTP(S) URL")
+    if parsed.username or parsed.password:
+        raise ValueError("source URL must not include embedded credentials")
     return value

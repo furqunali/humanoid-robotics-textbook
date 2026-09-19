@@ -47,6 +47,12 @@ def test_validate_source_url_accepts_https():
     from docs.ingest_config import validate_source_url
     assert validate_source_url(" https://example.com/textbook ") == "https://example.com/textbook"
 
+def test_validate_source_url_rejects_embedded_credentials():
+    from docs.ingest_config import validate_source_url
+    with pytest.raises(ValueError, match="embedded credentials"):
+        validate_source_url("https://user:secret@example.com/textbook")
+
+
 def test_validate_source_url_rejects_non_http():
     from docs.ingest_config import validate_source_url
     with pytest.raises(ValueError, match="HTTP\\(S\\)"):
