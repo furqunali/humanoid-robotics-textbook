@@ -1,12 +1,14 @@
 import pytest
 
-from docs.ingest_config import load_config
+from docs.ingest_config import load_config, validate_http_url
+
 
 def test_rejects_invalid_qdrant_url(monkeypatch):
     monkeypatch.setenv("QDRANT_URL", "not-a-url")
     monkeypatch.setenv("QDRANT_API_KEY", "test-key")
     with pytest.raises(ValueError, match="valid HTTP"):
         load_config()
+
 
 def test_rejects_qdrant_url_credentials(monkeypatch):
     monkeypatch.setenv("QDRANT_URL", "https://user:secret@qdrant.example.com")
@@ -23,6 +25,7 @@ def test_loads_valid_configuration(monkeypatch):
     assert config.collection_name == "robotics_textbook"
     assert config.vector_size == 1536
 
+
 def test_loads_custom_collection_and_vector_size(monkeypatch):
     monkeypatch.setenv("QDRANT_URL", "https://qdrant.example.com")
     monkeypatch.setenv("QDRANT_API_KEY", "test-key")
@@ -31,6 +34,7 @@ def test_loads_custom_collection_and_vector_size(monkeypatch):
     config = load_config()
     assert config.collection_name == "robotics_v2"
     assert config.vector_size == 768
+
 
 @pytest.mark.parametrize(
     ("name", "value", "message"),
@@ -50,17 +54,31 @@ def test_rejects_invalid_optional_config(monkeypatch, name, value, message):
     with pytest.raises(ValueError, match=message):
         load_config()
 
+
+def test_validate_http_url_strips_whitespace():
+    assert validate_http_url(" https://example.com/docs ", "source URL") == "https://example.com/docs"
+
+
+def test_validate_http_url_rejects_credentials():
+    with pytest.raises(ValueError, match="embedded credentials"):
+        validate_http_url("https://user:secret@example.com/docs", "source URL")
+
+
 def test_validate_source_url_accepts_https():
     from docs.ingest_config import validate_source_url
+
     assert validate_source_url(" https://example.com/textbook ") == "https://example.com/textbook"
+
 
 def test_validate_source_url_rejects_embedded_credentials():
     from docs.ingest_config import validate_source_url
+
     with pytest.raises(ValueError, match="embedded credentials"):
         validate_source_url("https://user:secret@example.com/textbook")
 
 
 def test_validate_source_url_rejects_non_http():
     from docs.ingest_config import validate_source_url
+
     with pytest.raises(ValueError, match="HTTP\\(S\\)"):
         validate_source_url("ftp://example.com/textbook")
