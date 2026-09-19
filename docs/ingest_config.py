@@ -23,6 +23,13 @@ def load_config() -> IngestConfig:
     parsed = urlparse(url)
     if parsed.scheme not in {"http", "https"} or not parsed.netloc:
         raise ValueError("QDRANT_URL must be a valid HTTP(S) URL")
-    if not api_key:
-        raise RuntimeError("QDRANT_API_KEY is required")
     return IngestConfig(qdrant_url=url, qdrant_api_key=api_key)
+
+
+def validate_source_url(url: str) -> str:
+    """Validate and normalize an ingestion source URL."""
+    value = (url or "").strip()
+    parsed = urlparse(value)
+    if parsed.scheme not in {"http", "https"} or not parsed.netloc:
+        raise ValueError("source URL must be a valid HTTP(S) URL")
+    return value
