@@ -8,6 +8,13 @@ def test_rejects_invalid_qdrant_url(monkeypatch):
     with pytest.raises(ValueError, match="valid HTTP"):
         load_config()
 
+def test_rejects_qdrant_url_credentials(monkeypatch):
+    monkeypatch.setenv("QDRANT_URL", "https://user:secret@qdrant.example.com")
+    monkeypatch.setenv("QDRANT_API_KEY", "test-key")
+    with pytest.raises(ValueError, match="embedded credentials"):
+        load_config()
+
+
 def test_loads_valid_configuration(monkeypatch):
     monkeypatch.setenv("QDRANT_URL", "https://qdrant.example.com")
     monkeypatch.setenv("QDRANT_API_KEY", "test-key")
