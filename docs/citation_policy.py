@@ -15,8 +15,6 @@ def evaluate_citations(health: KnowledgeHealth) -> tuple[CitationFinding, ...]:
         findings.append(CitationFinding("NO_CHUNKS", "warning", "textbook export contains no chunks"))
     if health.citation_coverage < 1.0:
         findings.append(CitationFinding("INCOMPLETE_COVERAGE", "error", f"citation coverage is {health.citation_coverage:.4f}"))
-    if health.chunks != health.sources and health.chunks > 0:
-        findings.append(CitationFinding("SOURCE_MISMATCH", "warning", "chunk and source counts differ"))
     if health.healthy and not findings:
         findings.append(CitationFinding("HEALTHY", "info", "citation coverage passed all health checks"))
     return tuple(findings)
