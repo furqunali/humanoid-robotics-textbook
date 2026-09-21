@@ -32,3 +32,13 @@ def test_write_jsonl_round_trips_records(tmp_path: Path):
     assert len(lines) == len(chunks)
     assert '"source"' in lines[0]
     assert '"id"' in lines[0]
+
+
+def test_chunk_markdown_rejects_non_integer_max_chars(tmp_path: Path):
+    path = tmp_path / "robotics.md"
+    path.write_text("# Robotics\ntext", encoding="utf-8")
+    import pytest
+    with pytest.raises(ValueError, match="positive integer"):
+        chunk_markdown(path, max_chars=10.5)
+    with pytest.raises(ValueError, match="positive integer"):
+        chunk_markdown(path, max_chars=True)
