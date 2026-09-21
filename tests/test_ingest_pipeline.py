@@ -1,6 +1,6 @@
 import pytest
 
-from docs.ingest_pipeline import chunk_document, normalize_text
+from docs.ingest_pipeline import chunk_document, normalize_text, chunk_many
 
 
 def test_normalize_text_collapses_whitespace():
@@ -21,3 +21,8 @@ def test_chunk_document_rejects_invalid_size():
 def test_chunk_document_handles_words_longer_than_limit():
     chunks = chunk_document("short supercalifragilistic", "docs/intro.md", max_chars=5)
     assert [chunk.text for chunk in chunks] == ["short", "supercalifragilistic"]
+
+
+def test_chunk_many_rejects_invalid_size_even_when_empty():
+    with pytest.raises(ValueError):
+        chunk_many([], max_chars=0)

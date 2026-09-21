@@ -46,6 +46,8 @@ def chunk_document(text: str, source: str, max_chars: int = 1200) -> list[Docume
 
 
 def chunk_many(documents: Iterable[tuple[str, str]], max_chars: int = 1200) -> list[DocumentChunk]:
+    if max_chars <= 0:
+        raise ValueError("max_chars must be positive")
     result = []
     for text, source in documents:
         result.extend(chunk_document(text, source, max_chars))
