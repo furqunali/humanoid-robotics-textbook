@@ -16,3 +16,8 @@ def test_chunk_document_preserves_source_and_order():
 def test_chunk_document_rejects_invalid_size():
     with pytest.raises(ValueError):
         chunk_document("robotics", "docs/intro.md", max_chars=0)
+
+
+def test_chunk_document_handles_words_longer_than_limit():
+    chunks = chunk_document("short supercalifragilistic", "docs/intro.md", max_chars=5)
+    assert [chunk.text for chunk in chunks] == ["short", "supercalifragilistic"]
