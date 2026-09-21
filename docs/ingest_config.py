@@ -12,13 +12,26 @@ _COLLECTION_NAME = re.compile(r"^[A-Za-z0-9][A-Za-z0-9_-]{0,62}$")
 
 @dataclass(frozen=True)
 class IngestConfig:
-    qdrant_url: str
-    qdrant_api_key: str
+    qdrant_url: str = ""
+    qdrant_api_key: str = ""
     collection_name: str = "robotics_textbook"
     vector_size: int = 1536
 
+    def validate(self) -> None:
+        """Validate the configuration, raising ValueError on bad values."""
+        if self.vector_size <= 0:
+            raise ValueError("vector_size must be positive")
+        if self.collection_name and not _COLLECTION_NAME.fullmatch(self.collection_name):
+            raise ValueError(
+                "collection_name must be 1-63 characters and contain only "
+                "letters, numbers, hyphens, and underscores"
+            )
+        if self.qdrant_url:
+            validate_http_url(self.qdrant_url)
+        return None
 
-def validate_http_url(url: str, field_name: str) -> str:
+
+def validate_http_url(url: str, field_name: str = "URL") -> str:
     """Validate and normalize a URL used by the ingestion pipeline."""
     value = (url or "").strip()
     parsed = urlparse(value)
@@ -27,7 +40,7 @@ def validate_http_url(url: str, field_name: str) -> str:
         or not parsed.netloc
         or not parsed.hostname
     ):
-        raise ValueError(f"{field_name} must be a valid HTTP(S) URL")
+        raise ValueError(f"{field_name} must be a valid HTTP(S) URL (http/https)")
     if parsed.username or parsed.password:
         raise ValueError(f"{field_name} must not include embedded credentials")
     return value
