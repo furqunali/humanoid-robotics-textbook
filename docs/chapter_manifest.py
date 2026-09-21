@@ -24,6 +24,19 @@ def chapter_title(text: str, fallback: str) -> str:
 def section_count(text: str) -> int:
     return sum(1 for line in text.splitlines() if line.startswith("## "))
 
+def word_count(text: str) -> int:
+    """Count content words, excluding the H1 title's ``#`` sigil.
+
+    The document title is captured separately from the leading ``# `` heading,
+    so its marker is not counted as a word; other content is counted verbatim.
+    """
+    tokens: list[str] = []
+    for line in text.splitlines():
+        if line.startswith("# "):
+            line = line[2:]
+        tokens.extend(line.split())
+    return len(tokens)
+
 def build_manifest(root: Path, paths: Iterable[Path] | None = None) -> list[ChapterEntry]:
     if not root.exists():
         raise FileNotFoundError(root)
@@ -37,7 +50,7 @@ def build_manifest(root: Path, paths: Iterable[Path] | None = None) -> list[Chap
             path=path.relative_to(root).as_posix(),
             title=chapter_title(text, path.stem),
             bytes=path.stat().st_size,
-            words=len(text.split()),
+            words=word_count(text),
             sections=section_count(text),
         ))
     return entries
