@@ -32,6 +32,12 @@ def chunk_document(text: str, source: str, max_chars: int = 1200) -> list[Docume
         if current and size + extra > max_chars:
             chunks.append(DocumentChunk(" ".join(current), source.strip(), len(chunks)))
             current, size = [], 0
+        if len(word) > max_chars:
+            if current:
+                chunks.append(DocumentChunk(" ".join(current), source.strip(), len(chunks)))
+                current, size = [], 0
+            chunks.append(DocumentChunk(word, source.strip(), len(chunks)))
+            continue
         current.append(word)
         size += len(word) + (1 if size else 0)
     if current:
