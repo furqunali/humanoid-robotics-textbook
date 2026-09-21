@@ -30,8 +30,8 @@ def _title(text: str, fallback: str) -> str:
 
 
 def chunk_markdown(path: Path, max_chars: int = 1200) -> list[KnowledgeChunk]:
-    if max_chars <= 0:
-        raise ValueError("max_chars must be positive")
+    if not isinstance(max_chars, int) or isinstance(max_chars, bool) or max_chars <= 0:
+        raise ValueError("max_chars must be a positive integer")
     raw = path.read_text(encoding="utf-8")
     normalized = _clean(raw)
     if not normalized:
