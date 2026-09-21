@@ -187,3 +187,7 @@ def test_index_is_immutable():
     assert isinstance(index, SearchIndex)
     with pytest.raises(Exception):
         index.average_length = 5.0  # type: ignore[misc]
+
+
+def test_tokenize_preserves_unicode_words():
+    assert tokenize("café 東京ロボット naïve") == ["café", "東京ロボット", "naïve"]
