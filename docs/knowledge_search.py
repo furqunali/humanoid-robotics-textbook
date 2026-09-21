@@ -29,7 +29,7 @@ from docs.knowledge_source import KnowledgeChunk
 BM25_K1 = 1.5
 BM25_B = 0.75
 
-_TOKEN = re.compile(r"[a-z0-9]+")
+_TOKEN = re.compile(r"[^\W_]+", re.UNICODE)
 
 
 def tokenize(text: str) -> list[str]:
