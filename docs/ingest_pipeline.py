@@ -19,7 +19,7 @@ def normalize_text(text: str) -> str:
 def chunk_document(text: str, source: str, max_chars: int = 1200) -> list[DocumentChunk]:
     if not isinstance(source, str) or not source.strip():
         raise ValueError("source must be non-empty")
-    if max_chars <= 0:
+    if isinstance(max_chars, bool) or not isinstance(max_chars, int) or max_chars <= 0:
         raise ValueError("max_chars must be positive")
     normalized = normalize_text(text)
     if not normalized:

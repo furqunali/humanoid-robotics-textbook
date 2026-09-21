@@ -26,3 +26,9 @@ def test_chunk_document_handles_words_longer_than_limit():
 def test_chunk_many_rejects_invalid_size_even_when_empty():
     with pytest.raises(ValueError):
         chunk_many([], max_chars=0)
+
+
+def test_chunk_document_rejects_noninteger_size():
+    for value in (1.5, True):
+        with pytest.raises(ValueError):
+            chunk_document("robotics", "docs/intro.md", max_chars=value)
