@@ -39,3 +39,8 @@ GIT_USER=<Your GitHub username> yarn deploy
 ```
 
 If you are using GitHub pages for hosting, this command is a convenient way to build the website and push to the `gh-pages` branch.
+
+
+## Engineering Validation
+
+The textbook tooling now includes deterministic BM25 lexical search over the knowledge corpus, Unicode-aware tokenization, and stricter validation for knowledge chunk sizes and ingestion inputs. These checks keep the knowledge layer deterministic and fail early on malformed configuration.
