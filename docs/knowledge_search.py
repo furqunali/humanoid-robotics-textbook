@@ -233,6 +233,8 @@ def write_search_results(results: Iterable[SearchResult], destination: Path) -> 
     count = 0
     with destination.open("w", encoding="utf-8") as handle:
         for result in results:
+            if not isinstance(result, SearchResult):
+                raise TypeError("results must contain SearchResult values")
             handle.write(
                 json.dumps(result.to_dict(), ensure_ascii=False, sort_keys=True)
             )

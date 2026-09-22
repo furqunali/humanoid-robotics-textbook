@@ -200,3 +200,4 @@ def test_search_orders_by_unrounded_score_before_precision_ties():
     ]
     index = build_search_index(chunks, precision=0)
     assert [result.chunk_id for result in index.search("alpha", limit=2)] == ["b", "a"]
+\n\ndef test_write_search_results_rejects_invalid_result_type(tmp_path):\n    with pytest.raises(TypeError, match="SearchResult"):\n        write_search_results([None], tmp_path / "results.jsonl")  # type: ignore[list-item]\n
