@@ -191,3 +191,12 @@ def test_index_is_immutable():
 
 def test_tokenize_preserves_unicode_words():
     assert tokenize("café 東京ロボット naïve") == ["café", "東京ロボット", "naïve"]
+
+
+def test_search_orders_by_unrounded_score_before_precision_ties():
+    chunks = [
+        KnowledgeChunk(id="b", source="b.md", title="B", index=0, text="alpha " * 9),
+        KnowledgeChunk(id="a", source="a.md", title="A", index=0, text="alpha " * 8),
+    ]
+    index = build_search_index(chunks, precision=0)
+    assert [result.chunk_id for result in index.search("alpha", limit=2)] == ["b", "a"]

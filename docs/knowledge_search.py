@@ -125,29 +125,32 @@ class SearchIndex:
         terms = Counter(tokenize(query))
         if not terms or not self.documents:
             return []
-        scored: list[SearchResult] = []
+        scored: list[tuple[float, SearchResult]] = []
         for document in self.documents:
             raw = self._score(terms, document)
             if raw <= 0.0:
                 continue
             scored.append(
-                SearchResult(
+                (
+                    raw,
+                    SearchResult(
                     chunk_id=document.chunk_id,
                     source=document.source,
                     title=document.title,
                     index=document.index,
                     score=round(raw, self.precision),
+                    ),
                 )
             )
         scored.sort(
-            key=lambda result: (
-                -result.score,
-                result.source,
-                result.index,
-                result.chunk_id,
+            key=lambda item: (
+                -item[0],
+                item[1].source,
+                item[1].index,
+                item[1].chunk_id,
             )
         )
-        return scored[:limit]
+        return [result for _, result in scored[:limit]]
 
     def to_dict(self) -> dict[str, object]:
         """Serialise the index into a canonical, JSON-friendly structure."""
