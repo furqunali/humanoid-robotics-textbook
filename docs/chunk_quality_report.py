@@ -1,9 +1,12 @@
 """Stable JSON export for textbook chunk-quality gates."""
 from __future__ import annotations
+
 import json
 from dataclasses import asdict
+
 from .chunk_quality_gate import ChunkQualityGate
 from .chunk_quality_report_schema import validate_chunk_quality_report
+
 
 def chunk_quality_report_dict(result: ChunkQualityGate) -> dict:
     if not isinstance(result, ChunkQualityGate):

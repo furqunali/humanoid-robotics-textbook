@@ -1,7 +1,10 @@
 from pathlib import Path
+
 import pytest
+
 from docs.knowledge_source import KnowledgeChunk
 from docs.retrieval_export import export_retrieval_chunks
+
 
 def c(i): return KnowledgeChunk(str(i), "chapter.md", "Chapter", "text", i)
 

@@ -1,8 +1,11 @@
 """Small CLI helpers for reproducible textbook knowledge exports."""
 from __future__ import annotations
+
 import argparse
 from pathlib import Path
+
 from docs.knowledge_source import build_knowledge_source, write_jsonl
+
 
 def export_knowledge(root: Path, destination: Path, max_chars: int = 1200) -> int:
     if max_chars <= 0:

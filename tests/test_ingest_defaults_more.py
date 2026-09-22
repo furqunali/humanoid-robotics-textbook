@@ -1,5 +1,7 @@
 import pytest
-from docs.ingest_defaults import parse_vector_size, normalize_collection_name
+
+from docs.ingest_defaults import normalize_collection_name, parse_vector_size
+
 
 def test_collection_name_strips_tabs():
     assert normalize_collection_name("\\t robotics \\t") == "robotics"

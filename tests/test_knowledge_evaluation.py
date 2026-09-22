@@ -1,6 +1,8 @@
+import pytest
+
 from docs.knowledge_evaluation import evaluate_chunks
 from docs.knowledge_source import KnowledgeChunk
-import pytest
+
 
 def test_evaluate_chunks_reports_valid_corpus():
     chunks = [KnowledgeChunk("a", "docs/a.md", "A", "robot", 0),

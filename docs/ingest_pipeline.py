@@ -1,6 +1,6 @@
-from dataclasses import dataclass
 import re
-from typing import Iterable
+from collections.abc import Iterable
+from dataclasses import dataclass
 
 
 @dataclass(frozen=True)

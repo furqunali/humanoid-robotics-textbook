@@ -1,5 +1,5 @@
-from pathlib import Path
 from docs.knowledge_cli import export_knowledge
+
 
 def test_export_knowledge_writes_deterministic_jsonl(tmp_path):
     root = tmp_path / "book"

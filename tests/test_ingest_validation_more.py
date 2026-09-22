@@ -1,5 +1,7 @@
 import pytest
+
 from docs.ingest_validation import validate_source_label, validate_source_scheme
+
 
 def test_source_label_preserves_internal_spacing():
     assert validate_source_label("  lecture   notes  ") == "lecture   notes"

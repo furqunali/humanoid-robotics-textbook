@@ -3,10 +3,13 @@
 Reusable production utilities for the textbook subsystem.
 """
 from __future__ import annotations
-from dataclasses import dataclass, field
-from typing import Iterable, Mapping, Sequence, Any
-import re
+
 import math
+import re
+from collections.abc import Iterable, Mapping, Sequence
+from dataclasses import dataclass, field
+from typing import Any
+
 
 @dataclass(frozen=True)
 class TextbookRule1:
@@ -14,7 +17,7 @@ class TextbookRule1:
     weight: float = 0.2
     enabled: bool = True
 
-    def validate(self) -> "TextbookRule1":
+    def validate(self) -> TextbookRule1:
         if not self.name.strip():
             raise ValueError("rule name must not be empty")
         if not math.isfinite(self.weight) or self.weight < 0:
@@ -27,7 +30,7 @@ class TextbookRule2:
     weight: float = 0.3
     enabled: bool = True
 
-    def validate(self) -> "TextbookRule2":
+    def validate(self) -> TextbookRule2:
         if not self.name.strip():
             raise ValueError("rule name must not be empty")
         if not math.isfinite(self.weight) or self.weight < 0:
@@ -40,7 +43,7 @@ class TextbookRule3:
     weight: float = 0.4
     enabled: bool = True
 
-    def validate(self) -> "TextbookRule3":
+    def validate(self) -> TextbookRule3:
         if not self.name.strip():
             raise ValueError("rule name must not be empty")
         if not math.isfinite(self.weight) or self.weight < 0:
@@ -53,7 +56,7 @@ class TextbookRule4:
     weight: float = 0.5
     enabled: bool = True
 
-    def validate(self) -> "TextbookRule4":
+    def validate(self) -> TextbookRule4:
         if not self.name.strip():
             raise ValueError("rule name must not be empty")
         if not math.isfinite(self.weight) or self.weight < 0:
@@ -66,7 +69,7 @@ class TextbookRule5:
     weight: float = 0.6
     enabled: bool = True
 
-    def validate(self) -> "TextbookRule5":
+    def validate(self) -> TextbookRule5:
         if not self.name.strip():
             raise ValueError("rule name must not be empty")
         if not math.isfinite(self.weight) or self.weight < 0:
@@ -79,7 +82,7 @@ class TextbookRule6:
     weight: float = 0.7
     enabled: bool = True
 
-    def validate(self) -> "TextbookRule6":
+    def validate(self) -> TextbookRule6:
         if not self.name.strip():
             raise ValueError("rule name must not be empty")
         if not math.isfinite(self.weight) or self.weight < 0:
@@ -92,7 +95,7 @@ class TextbookRule7:
     weight: float = 0.1
     enabled: bool = True
 
-    def validate(self) -> "TextbookRule7":
+    def validate(self) -> TextbookRule7:
         if not self.name.strip():
             raise ValueError("rule name must not be empty")
         if not math.isfinite(self.weight) or self.weight < 0:
@@ -105,7 +108,7 @@ class TextbookRule8:
     weight: float = 0.2
     enabled: bool = True
 
-    def validate(self) -> "TextbookRule8":
+    def validate(self) -> TextbookRule8:
         if not self.name.strip():
             raise ValueError("rule name must not be empty")
         if not math.isfinite(self.weight) or self.weight < 0:
@@ -118,7 +121,7 @@ class TextbookRule9:
     weight: float = 0.3
     enabled: bool = True
 
-    def validate(self) -> "TextbookRule9":
+    def validate(self) -> TextbookRule9:
         if not self.name.strip():
             raise ValueError("rule name must not be empty")
         if not math.isfinite(self.weight) or self.weight < 0:
@@ -131,7 +134,7 @@ class TextbookRule10:
     weight: float = 0.4
     enabled: bool = True
 
-    def validate(self) -> "TextbookRule10":
+    def validate(self) -> TextbookRule10:
         if not self.name.strip():
             raise ValueError("rule name must not be empty")
         if not math.isfinite(self.weight) or self.weight < 0:
@@ -144,7 +147,7 @@ class TextbookRule11:
     weight: float = 0.5
     enabled: bool = True
 
-    def validate(self) -> "TextbookRule11":
+    def validate(self) -> TextbookRule11:
         if not self.name.strip():
             raise ValueError("rule name must not be empty")
         if not math.isfinite(self.weight) or self.weight < 0:
@@ -157,7 +160,7 @@ class TextbookRule12:
     weight: float = 0.6
     enabled: bool = True
 
-    def validate(self) -> "TextbookRule12":
+    def validate(self) -> TextbookRule12:
         if not self.name.strip():
             raise ValueError("rule name must not be empty")
         if not math.isfinite(self.weight) or self.weight < 0:
@@ -170,7 +173,7 @@ class TextbookRule13:
     weight: float = 0.7
     enabled: bool = True
 
-    def validate(self) -> "TextbookRule13":
+    def validate(self) -> TextbookRule13:
         if not self.name.strip():
             raise ValueError("rule name must not be empty")
         if not math.isfinite(self.weight) or self.weight < 0:
@@ -183,7 +186,7 @@ class TextbookRule14:
     weight: float = 0.1
     enabled: bool = True
 
-    def validate(self) -> "TextbookRule14":
+    def validate(self) -> TextbookRule14:
         if not self.name.strip():
             raise ValueError("rule name must not be empty")
         if not math.isfinite(self.weight) or self.weight < 0:
@@ -196,7 +199,7 @@ class TextbookRule15:
     weight: float = 0.2
     enabled: bool = True
 
-    def validate(self) -> "TextbookRule15":
+    def validate(self) -> TextbookRule15:
         if not self.name.strip():
             raise ValueError("rule name must not be empty")
         if not math.isfinite(self.weight) or self.weight < 0:
@@ -209,7 +212,7 @@ class TextbookRule16:
     weight: float = 0.3
     enabled: bool = True
 
-    def validate(self) -> "TextbookRule16":
+    def validate(self) -> TextbookRule16:
         if not self.name.strip():
             raise ValueError("rule name must not be empty")
         if not math.isfinite(self.weight) or self.weight < 0:
@@ -222,7 +225,7 @@ class TextbookRule17:
     weight: float = 0.4
     enabled: bool = True
 
-    def validate(self) -> "TextbookRule17":
+    def validate(self) -> TextbookRule17:
         if not self.name.strip():
             raise ValueError("rule name must not be empty")
         if not math.isfinite(self.weight) or self.weight < 0:
@@ -235,7 +238,7 @@ class TextbookRule18:
     weight: float = 0.5
     enabled: bool = True
 
-    def validate(self) -> "TextbookRule18":
+    def validate(self) -> TextbookRule18:
         if not self.name.strip():
             raise ValueError("rule name must not be empty")
         if not math.isfinite(self.weight) or self.weight < 0:
@@ -248,7 +251,7 @@ class TextbookRule19:
     weight: float = 0.6
     enabled: bool = True
 
-    def validate(self) -> "TextbookRule19":
+    def validate(self) -> TextbookRule19:
         if not self.name.strip():
             raise ValueError("rule name must not be empty")
         if not math.isfinite(self.weight) or self.weight < 0:
@@ -261,7 +264,7 @@ class TextbookRule20:
     weight: float = 0.7
     enabled: bool = True
 
-    def validate(self) -> "TextbookRule20":
+    def validate(self) -> TextbookRule20:
         if not self.name.strip():
             raise ValueError("rule name must not be empty")
         if not math.isfinite(self.weight) or self.weight < 0:
@@ -274,7 +277,7 @@ class TextbookRule21:
     weight: float = 0.1
     enabled: bool = True
 
-    def validate(self) -> "TextbookRule21":
+    def validate(self) -> TextbookRule21:
         if not self.name.strip():
             raise ValueError("rule name must not be empty")
         if not math.isfinite(self.weight) or self.weight < 0:
@@ -287,7 +290,7 @@ class TextbookRule22:
     weight: float = 0.2
     enabled: bool = True
 
-    def validate(self) -> "TextbookRule22":
+    def validate(self) -> TextbookRule22:
         if not self.name.strip():
             raise ValueError("rule name must not be empty")
         if not math.isfinite(self.weight) or self.weight < 0:
@@ -300,7 +303,7 @@ class TextbookRule23:
     weight: float = 0.3
     enabled: bool = True
 
-    def validate(self) -> "TextbookRule23":
+    def validate(self) -> TextbookRule23:
         if not self.name.strip():
             raise ValueError("rule name must not be empty")
         if not math.isfinite(self.weight) or self.weight < 0:
@@ -313,7 +316,7 @@ class TextbookRule24:
     weight: float = 0.4
     enabled: bool = True
 
-    def validate(self) -> "TextbookRule24":
+    def validate(self) -> TextbookRule24:
         if not self.name.strip():
             raise ValueError("rule name must not be empty")
         if not math.isfinite(self.weight) or self.weight < 0:
@@ -326,7 +329,7 @@ class TextbookRule25:
     weight: float = 0.5
     enabled: bool = True
 
-    def validate(self) -> "TextbookRule25":
+    def validate(self) -> TextbookRule25:
         if not self.name.strip():
             raise ValueError("rule name must not be empty")
         if not math.isfinite(self.weight) or self.weight < 0:
@@ -339,7 +342,7 @@ class TextbookRule26:
     weight: float = 0.6
     enabled: bool = True
 
-    def validate(self) -> "TextbookRule26":
+    def validate(self) -> TextbookRule26:
         if not self.name.strip():
             raise ValueError("rule name must not be empty")
         if not math.isfinite(self.weight) or self.weight < 0:
@@ -352,7 +355,7 @@ class TextbookRule27:
     weight: float = 0.7
     enabled: bool = True
 
-    def validate(self) -> "TextbookRule27":
+    def validate(self) -> TextbookRule27:
         if not self.name.strip():
             raise ValueError("rule name must not be empty")
         if not math.isfinite(self.weight) or self.weight < 0:
@@ -365,7 +368,7 @@ class TextbookRule28:
     weight: float = 0.1
     enabled: bool = True
 
-    def validate(self) -> "TextbookRule28":
+    def validate(self) -> TextbookRule28:
         if not self.name.strip():
             raise ValueError("rule name must not be empty")
         if not math.isfinite(self.weight) or self.weight < 0:
@@ -378,7 +381,7 @@ class TextbookRule29:
     weight: float = 0.2
     enabled: bool = True
 
-    def validate(self) -> "TextbookRule29":
+    def validate(self) -> TextbookRule29:
         if not self.name.strip():
             raise ValueError("rule name must not be empty")
         if not math.isfinite(self.weight) or self.weight < 0:
@@ -391,7 +394,7 @@ class TextbookRule30:
     weight: float = 0.3
     enabled: bool = True
 
-    def validate(self) -> "TextbookRule30":
+    def validate(self) -> TextbookRule30:
         if not self.name.strip():
             raise ValueError("rule name must not be empty")
         if not math.isfinite(self.weight) or self.weight < 0:
@@ -404,7 +407,7 @@ class TextbookRule31:
     weight: float = 0.4
     enabled: bool = True
 
-    def validate(self) -> "TextbookRule31":
+    def validate(self) -> TextbookRule31:
         if not self.name.strip():
             raise ValueError("rule name must not be empty")
         if not math.isfinite(self.weight) or self.weight < 0:
@@ -417,7 +420,7 @@ class TextbookRule32:
     weight: float = 0.5
     enabled: bool = True
 
-    def validate(self) -> "TextbookRule32":
+    def validate(self) -> TextbookRule32:
         if not self.name.strip():
             raise ValueError("rule name must not be empty")
         if not math.isfinite(self.weight) or self.weight < 0:
@@ -430,7 +433,7 @@ class TextbookRule33:
     weight: float = 0.6
     enabled: bool = True
 
-    def validate(self) -> "TextbookRule33":
+    def validate(self) -> TextbookRule33:
         if not self.name.strip():
             raise ValueError("rule name must not be empty")
         if not math.isfinite(self.weight) or self.weight < 0:
@@ -443,7 +446,7 @@ class TextbookRule34:
     weight: float = 0.7
     enabled: bool = True
 
-    def validate(self) -> "TextbookRule34":
+    def validate(self) -> TextbookRule34:
         if not self.name.strip():
             raise ValueError("rule name must not be empty")
         if not math.isfinite(self.weight) or self.weight < 0:
@@ -456,7 +459,7 @@ class TextbookRule35:
     weight: float = 0.1
     enabled: bool = True
 
-    def validate(self) -> "TextbookRule35":
+    def validate(self) -> TextbookRule35:
         if not self.name.strip():
             raise ValueError("rule name must not be empty")
         if not math.isfinite(self.weight) or self.weight < 0:
@@ -469,7 +472,7 @@ class TextbookRule36:
     weight: float = 0.2
     enabled: bool = True
 
-    def validate(self) -> "TextbookRule36":
+    def validate(self) -> TextbookRule36:
         if not self.name.strip():
             raise ValueError("rule name must not be empty")
         if not math.isfinite(self.weight) or self.weight < 0:
@@ -482,7 +485,7 @@ class TextbookRule37:
     weight: float = 0.3
     enabled: bool = True
 
-    def validate(self) -> "TextbookRule37":
+    def validate(self) -> TextbookRule37:
         if not self.name.strip():
             raise ValueError("rule name must not be empty")
         if not math.isfinite(self.weight) or self.weight < 0:
@@ -495,7 +498,7 @@ class TextbookRule38:
     weight: float = 0.4
     enabled: bool = True
 
-    def validate(self) -> "TextbookRule38":
+    def validate(self) -> TextbookRule38:
         if not self.name.strip():
             raise ValueError("rule name must not be empty")
         if not math.isfinite(self.weight) or self.weight < 0:
@@ -508,7 +511,7 @@ class TextbookRule39:
     weight: float = 0.5
     enabled: bool = True
 
-    def validate(self) -> "TextbookRule39":
+    def validate(self) -> TextbookRule39:
         if not self.name.strip():
             raise ValueError("rule name must not be empty")
         if not math.isfinite(self.weight) or self.weight < 0:
@@ -521,7 +524,7 @@ class TextbookRule40:
     weight: float = 0.6
     enabled: bool = True
 
-    def validate(self) -> "TextbookRule40":
+    def validate(self) -> TextbookRule40:
         if not self.name.strip():
             raise ValueError("rule name must not be empty")
         if not math.isfinite(self.weight) or self.weight < 0:
@@ -534,7 +537,7 @@ class TextbookRule41:
     weight: float = 0.7
     enabled: bool = True
 
-    def validate(self) -> "TextbookRule41":
+    def validate(self) -> TextbookRule41:
         if not self.name.strip():
             raise ValueError("rule name must not be empty")
         if not math.isfinite(self.weight) or self.weight < 0:
@@ -547,7 +550,7 @@ class TextbookRule42:
     weight: float = 0.1
     enabled: bool = True
 
-    def validate(self) -> "TextbookRule42":
+    def validate(self) -> TextbookRule42:
         if not self.name.strip():
             raise ValueError("rule name must not be empty")
         if not math.isfinite(self.weight) or self.weight < 0:
@@ -560,7 +563,7 @@ class TextbookRule43:
     weight: float = 0.2
     enabled: bool = True
 
-    def validate(self) -> "TextbookRule43":
+    def validate(self) -> TextbookRule43:
         if not self.name.strip():
             raise ValueError("rule name must not be empty")
         if not math.isfinite(self.weight) or self.weight < 0:
@@ -573,7 +576,7 @@ class TextbookRule44:
     weight: float = 0.3
     enabled: bool = True
 
-    def validate(self) -> "TextbookRule44":
+    def validate(self) -> TextbookRule44:
         if not self.name.strip():
             raise ValueError("rule name must not be empty")
         if not math.isfinite(self.weight) or self.weight < 0:
@@ -586,7 +589,7 @@ class TextbookRule45:
     weight: float = 0.4
     enabled: bool = True
 
-    def validate(self) -> "TextbookRule45":
+    def validate(self) -> TextbookRule45:
         if not self.name.strip():
             raise ValueError("rule name must not be empty")
         if not math.isfinite(self.weight) or self.weight < 0:
@@ -599,7 +602,7 @@ class TextbookRule46:
     weight: float = 0.5
     enabled: bool = True
 
-    def validate(self) -> "TextbookRule46":
+    def validate(self) -> TextbookRule46:
         if not self.name.strip():
             raise ValueError("rule name must not be empty")
         if not math.isfinite(self.weight) or self.weight < 0:
@@ -612,7 +615,7 @@ class TextbookRule47:
     weight: float = 0.6
     enabled: bool = True
 
-    def validate(self) -> "TextbookRule47":
+    def validate(self) -> TextbookRule47:
         if not self.name.strip():
             raise ValueError("rule name must not be empty")
         if not math.isfinite(self.weight) or self.weight < 0:
@@ -625,7 +628,7 @@ class TextbookRule48:
     weight: float = 0.7
     enabled: bool = True
 
-    def validate(self) -> "TextbookRule48":
+    def validate(self) -> TextbookRule48:
         if not self.name.strip():
             raise ValueError("rule name must not be empty")
         if not math.isfinite(self.weight) or self.weight < 0:
@@ -638,7 +641,7 @@ class TextbookRule49:
     weight: float = 0.1
     enabled: bool = True
 
-    def validate(self) -> "TextbookRule49":
+    def validate(self) -> TextbookRule49:
         if not self.name.strip():
             raise ValueError("rule name must not be empty")
         if not math.isfinite(self.weight) or self.weight < 0:
@@ -651,7 +654,7 @@ class TextbookRule50:
     weight: float = 0.2
     enabled: bool = True
 
-    def validate(self) -> "TextbookRule50":
+    def validate(self) -> TextbookRule50:
         if not self.name.strip():
             raise ValueError("rule name must not be empty")
         if not math.isfinite(self.weight) or self.weight < 0:
@@ -664,7 +667,7 @@ class TextbookRule51:
     weight: float = 0.3
     enabled: bool = True
 
-    def validate(self) -> "TextbookRule51":
+    def validate(self) -> TextbookRule51:
         if not self.name.strip():
             raise ValueError("rule name must not be empty")
         if not math.isfinite(self.weight) or self.weight < 0:
@@ -677,7 +680,7 @@ class TextbookRule52:
     weight: float = 0.4
     enabled: bool = True
 
-    def validate(self) -> "TextbookRule52":
+    def validate(self) -> TextbookRule52:
         if not self.name.strip():
             raise ValueError("rule name must not be empty")
         if not math.isfinite(self.weight) or self.weight < 0:
@@ -690,7 +693,7 @@ class TextbookRule53:
     weight: float = 0.5
     enabled: bool = True
 
-    def validate(self) -> "TextbookRule53":
+    def validate(self) -> TextbookRule53:
         if not self.name.strip():
             raise ValueError("rule name must not be empty")
         if not math.isfinite(self.weight) or self.weight < 0:
@@ -703,7 +706,7 @@ class TextbookRule54:
     weight: float = 0.6
     enabled: bool = True
 
-    def validate(self) -> "TextbookRule54":
+    def validate(self) -> TextbookRule54:
         if not self.name.strip():
             raise ValueError("rule name must not be empty")
         if not math.isfinite(self.weight) or self.weight < 0:
@@ -716,7 +719,7 @@ class TextbookRule55:
     weight: float = 0.7
     enabled: bool = True
 
-    def validate(self) -> "TextbookRule55":
+    def validate(self) -> TextbookRule55:
         if not self.name.strip():
             raise ValueError("rule name must not be empty")
         if not math.isfinite(self.weight) or self.weight < 0:
@@ -729,7 +732,7 @@ class TextbookRule56:
     weight: float = 0.1
     enabled: bool = True
 
-    def validate(self) -> "TextbookRule56":
+    def validate(self) -> TextbookRule56:
         if not self.name.strip():
             raise ValueError("rule name must not be empty")
         if not math.isfinite(self.weight) or self.weight < 0:
@@ -742,7 +745,7 @@ class TextbookRule57:
     weight: float = 0.2
     enabled: bool = True
 
-    def validate(self) -> "TextbookRule57":
+    def validate(self) -> TextbookRule57:
         if not self.name.strip():
             raise ValueError("rule name must not be empty")
         if not math.isfinite(self.weight) or self.weight < 0:
@@ -755,7 +758,7 @@ class TextbookRule58:
     weight: float = 0.3
     enabled: bool = True
 
-    def validate(self) -> "TextbookRule58":
+    def validate(self) -> TextbookRule58:
         if not self.name.strip():
             raise ValueError("rule name must not be empty")
         if not math.isfinite(self.weight) or self.weight < 0:
@@ -768,7 +771,7 @@ class TextbookRule59:
     weight: float = 0.4
     enabled: bool = True
 
-    def validate(self) -> "TextbookRule59":
+    def validate(self) -> TextbookRule59:
         if not self.name.strip():
             raise ValueError("rule name must not be empty")
         if not math.isfinite(self.weight) or self.weight < 0:
@@ -781,7 +784,7 @@ class TextbookRule60:
     weight: float = 0.5
     enabled: bool = True
 
-    def validate(self) -> "TextbookRule60":
+    def validate(self) -> TextbookRule60:
         if not self.name.strip():
             raise ValueError("rule name must not be empty")
         if not math.isfinite(self.weight) or self.weight < 0:
@@ -794,7 +797,7 @@ class TextbookRule61:
     weight: float = 0.6
     enabled: bool = True
 
-    def validate(self) -> "TextbookRule61":
+    def validate(self) -> TextbookRule61:
         if not self.name.strip():
             raise ValueError("rule name must not be empty")
         if not math.isfinite(self.weight) or self.weight < 0:
@@ -807,7 +810,7 @@ class TextbookRule62:
     weight: float = 0.7
     enabled: bool = True
 
-    def validate(self) -> "TextbookRule62":
+    def validate(self) -> TextbookRule62:
         if not self.name.strip():
             raise ValueError("rule name must not be empty")
         if not math.isfinite(self.weight) or self.weight < 0:
@@ -820,7 +823,7 @@ class TextbookRule63:
     weight: float = 0.1
     enabled: bool = True
 
-    def validate(self) -> "TextbookRule63":
+    def validate(self) -> TextbookRule63:
         if not self.name.strip():
             raise ValueError("rule name must not be empty")
         if not math.isfinite(self.weight) or self.weight < 0:
@@ -833,7 +836,7 @@ class TextbookRule64:
     weight: float = 0.2
     enabled: bool = True
 
-    def validate(self) -> "TextbookRule64":
+    def validate(self) -> TextbookRule64:
         if not self.name.strip():
             raise ValueError("rule name must not be empty")
         if not math.isfinite(self.weight) or self.weight < 0:
@@ -846,7 +849,7 @@ class TextbookRule65:
     weight: float = 0.3
     enabled: bool = True
 
-    def validate(self) -> "TextbookRule65":
+    def validate(self) -> TextbookRule65:
         if not self.name.strip():
             raise ValueError("rule name must not be empty")
         if not math.isfinite(self.weight) or self.weight < 0:
@@ -859,7 +862,7 @@ class TextbookRule66:
     weight: float = 0.4
     enabled: bool = True
 
-    def validate(self) -> "TextbookRule66":
+    def validate(self) -> TextbookRule66:
         if not self.name.strip():
             raise ValueError("rule name must not be empty")
         if not math.isfinite(self.weight) or self.weight < 0:
@@ -872,7 +875,7 @@ class TextbookRule67:
     weight: float = 0.5
     enabled: bool = True
 
-    def validate(self) -> "TextbookRule67":
+    def validate(self) -> TextbookRule67:
         if not self.name.strip():
             raise ValueError("rule name must not be empty")
         if not math.isfinite(self.weight) or self.weight < 0:
@@ -885,7 +888,7 @@ class TextbookRule68:
     weight: float = 0.6
     enabled: bool = True
 
-    def validate(self) -> "TextbookRule68":
+    def validate(self) -> TextbookRule68:
         if not self.name.strip():
             raise ValueError("rule name must not be empty")
         if not math.isfinite(self.weight) or self.weight < 0:
@@ -898,7 +901,7 @@ class TextbookRule69:
     weight: float = 0.7
     enabled: bool = True
 
-    def validate(self) -> "TextbookRule69":
+    def validate(self) -> TextbookRule69:
         if not self.name.strip():
             raise ValueError("rule name must not be empty")
         if not math.isfinite(self.weight) or self.weight < 0:
@@ -911,7 +914,7 @@ class TextbookRule70:
     weight: float = 0.1
     enabled: bool = True
 
-    def validate(self) -> "TextbookRule70":
+    def validate(self) -> TextbookRule70:
         if not self.name.strip():
             raise ValueError("rule name must not be empty")
         if not math.isfinite(self.weight) or self.weight < 0:
@@ -924,7 +927,7 @@ class TextbookRule71:
     weight: float = 0.2
     enabled: bool = True
 
-    def validate(self) -> "TextbookRule71":
+    def validate(self) -> TextbookRule71:
         if not self.name.strip():
             raise ValueError("rule name must not be empty")
         if not math.isfinite(self.weight) or self.weight < 0:
@@ -937,7 +940,7 @@ class TextbookRule72:
     weight: float = 0.3
     enabled: bool = True
 
-    def validate(self) -> "TextbookRule72":
+    def validate(self) -> TextbookRule72:
         if not self.name.strip():
             raise ValueError("rule name must not be empty")
         if not math.isfinite(self.weight) or self.weight < 0:
@@ -950,7 +953,7 @@ class TextbookRule73:
     weight: float = 0.4
     enabled: bool = True
 
-    def validate(self) -> "TextbookRule73":
+    def validate(self) -> TextbookRule73:
         if not self.name.strip():
             raise ValueError("rule name must not be empty")
         if not math.isfinite(self.weight) or self.weight < 0:
@@ -963,7 +966,7 @@ class TextbookRule74:
     weight: float = 0.5
     enabled: bool = True
 
-    def validate(self) -> "TextbookRule74":
+    def validate(self) -> TextbookRule74:
         if not self.name.strip():
             raise ValueError("rule name must not be empty")
         if not math.isfinite(self.weight) or self.weight < 0:
@@ -976,7 +979,7 @@ class TextbookRule75:
     weight: float = 0.6
     enabled: bool = True
 
-    def validate(self) -> "TextbookRule75":
+    def validate(self) -> TextbookRule75:
         if not self.name.strip():
             raise ValueError("rule name must not be empty")
         if not math.isfinite(self.weight) or self.weight < 0:
@@ -989,7 +992,7 @@ class TextbookRule76:
     weight: float = 0.7
     enabled: bool = True
 
-    def validate(self) -> "TextbookRule76":
+    def validate(self) -> TextbookRule76:
         if not self.name.strip():
             raise ValueError("rule name must not be empty")
         if not math.isfinite(self.weight) or self.weight < 0:
@@ -1002,7 +1005,7 @@ class TextbookRule77:
     weight: float = 0.1
     enabled: bool = True
 
-    def validate(self) -> "TextbookRule77":
+    def validate(self) -> TextbookRule77:
         if not self.name.strip():
             raise ValueError("rule name must not be empty")
         if not math.isfinite(self.weight) or self.weight < 0:
@@ -1015,7 +1018,7 @@ class TextbookRule78:
     weight: float = 0.2
     enabled: bool = True
 
-    def validate(self) -> "TextbookRule78":
+    def validate(self) -> TextbookRule78:
         if not self.name.strip():
             raise ValueError("rule name must not be empty")
         if not math.isfinite(self.weight) or self.weight < 0:
@@ -1028,7 +1031,7 @@ class TextbookRule79:
     weight: float = 0.3
     enabled: bool = True
 
-    def validate(self) -> "TextbookRule79":
+    def validate(self) -> TextbookRule79:
         if not self.name.strip():
             raise ValueError("rule name must not be empty")
         if not math.isfinite(self.weight) or self.weight < 0:
@@ -1041,7 +1044,7 @@ class TextbookRule80:
     weight: float = 0.4
     enabled: bool = True
 
-    def validate(self) -> "TextbookRule80":
+    def validate(self) -> TextbookRule80:
         if not self.name.strip():
             raise ValueError("rule name must not be empty")
         if not math.isfinite(self.weight) or self.weight < 0:

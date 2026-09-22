@@ -1,8 +1,11 @@
 """Deterministic per-source length profiles for textbook knowledge."""
 from __future__ import annotations
-from dataclasses import dataclass
+
 from collections import defaultdict
+from dataclasses import dataclass
+
 from .knowledge_source import KnowledgeChunk
+
 
 @dataclass(frozen=True)
 class SourceLengthProfile:

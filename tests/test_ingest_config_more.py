@@ -1,5 +1,7 @@
 import pytest
+
 from docs.ingest_config import IngestConfig
+
 
 def test_config_accepts_small_positive_vector_size():
     assert IngestConfig(collection_name="docs", vector_size=1).validate() is None

@@ -1,6 +1,6 @@
 import pytest
 
-from docs.ingest_pipeline import chunk_document, normalize_text, chunk_many
+from docs.ingest_pipeline import chunk_document, chunk_many, normalize_text
 
 
 def test_normalize_text_collapses_whitespace():

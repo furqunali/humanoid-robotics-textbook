@@ -1,6 +1,7 @@
 """Validation for vector-ingestion configuration values."""
 from __future__ import annotations
 
+
 def validate_ingest_config(config) -> bool:
     if not getattr(config, "collection_name", "").strip():
         raise ValueError("collection_name must be non-empty")

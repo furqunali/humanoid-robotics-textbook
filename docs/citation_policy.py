@@ -1,7 +1,10 @@
 """Policy findings for textbook citation coverage."""
 from __future__ import annotations
+
 from dataclasses import dataclass
+
 from docs.knowledge_health import KnowledgeHealth
+
 
 @dataclass(frozen=True)
 class CitationFinding:

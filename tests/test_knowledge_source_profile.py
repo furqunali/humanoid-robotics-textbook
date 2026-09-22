@@ -1,6 +1,7 @@
 from docs.knowledge_source import KnowledgeChunk
 from docs.knowledge_source_profile import profile_source_lengths
 
+
 def c(i,s,t): return KnowledgeChunk(str(i),s,"title",t,i)
 
 def test_profiles_each_source():

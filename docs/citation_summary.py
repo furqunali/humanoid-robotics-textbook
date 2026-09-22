@@ -1,7 +1,10 @@
 """Aggregate deterministic citation policy findings."""
 from __future__ import annotations
+
 from dataclasses import dataclass
+
 from docs.citation_policy import CitationFinding
+
 
 @dataclass(frozen=True)
 class CitationSummary:

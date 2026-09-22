@@ -1,7 +1,10 @@
 """Statistics for deterministic knowledge exports."""
 from __future__ import annotations
+
 from dataclasses import dataclass
+
 from docs.knowledge_source import KnowledgeChunk
+
 
 @dataclass(frozen=True)
 class ExportStats:

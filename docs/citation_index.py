@@ -5,11 +5,11 @@ services can resolve a chunk id back to its source and human-readable title.
 """
 from __future__ import annotations
 
-from dataclasses import asdict, dataclass
-from pathlib import Path
 import json
 import re
-from typing import Iterable
+from collections.abc import Iterable
+from dataclasses import asdict, dataclass
+from pathlib import Path
 
 from docs.knowledge_source import KnowledgeChunk
 

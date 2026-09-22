@@ -1,8 +1,9 @@
 """Deterministic citation coverage metrics for grounded answers."""
 from __future__ import annotations
 
-from dataclasses import dataclass
 from collections.abc import Iterable
+from dataclasses import dataclass
+
 from docs.citation_index import CitationRecord
 
 

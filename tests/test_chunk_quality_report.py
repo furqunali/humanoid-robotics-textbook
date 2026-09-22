@@ -1,5 +1,9 @@
 from docs.chunk_quality_gate import ChunkQualityGate
-from docs.chunk_quality_report import chunk_quality_report_dict, chunk_quality_report_json
+from docs.chunk_quality_report import (
+    chunk_quality_report_dict,
+    chunk_quality_report_json,
+)
+
 
 def test_export_preserves_gate_fields():
     result = ChunkQualityGate(5, 1, 2, False)

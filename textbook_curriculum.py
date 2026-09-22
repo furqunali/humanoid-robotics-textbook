@@ -3,10 +3,13 @@
 Reusable production utilities for the curriculum subsystem.
 """
 from __future__ import annotations
-from dataclasses import dataclass, field
-from typing import Iterable, Mapping, Sequence, Any
-import re
+
 import math
+import re
+from collections.abc import Iterable, Mapping, Sequence
+from dataclasses import dataclass, field
+from typing import Any
+
 
 @dataclass(frozen=True)
 class CurriculumRule1:
@@ -14,7 +17,7 @@ class CurriculumRule1:
     weight: float = 0.2
     enabled: bool = True
 
-    def validate(self) -> "CurriculumRule1":
+    def validate(self) -> CurriculumRule1:
         if not self.name.strip():
             raise ValueError("rule name must not be empty")
         if not math.isfinite(self.weight) or self.weight < 0:
@@ -27,7 +30,7 @@ class CurriculumRule2:
     weight: float = 0.3
     enabled: bool = True
 
-    def validate(self) -> "CurriculumRule2":
+    def validate(self) -> CurriculumRule2:
         if not self.name.strip():
             raise ValueError("rule name must not be empty")
         if not math.isfinite(self.weight) or self.weight < 0:
@@ -40,7 +43,7 @@ class CurriculumRule3:
     weight: float = 0.4
     enabled: bool = True
 
-    def validate(self) -> "CurriculumRule3":
+    def validate(self) -> CurriculumRule3:
         if not self.name.strip():
             raise ValueError("rule name must not be empty")
         if not math.isfinite(self.weight) or self.weight < 0:
@@ -53,7 +56,7 @@ class CurriculumRule4:
     weight: float = 0.5
     enabled: bool = True
 
-    def validate(self) -> "CurriculumRule4":
+    def validate(self) -> CurriculumRule4:
         if not self.name.strip():
             raise ValueError("rule name must not be empty")
         if not math.isfinite(self.weight) or self.weight < 0:
@@ -66,7 +69,7 @@ class CurriculumRule5:
     weight: float = 0.6
     enabled: bool = True
 
-    def validate(self) -> "CurriculumRule5":
+    def validate(self) -> CurriculumRule5:
         if not self.name.strip():
             raise ValueError("rule name must not be empty")
         if not math.isfinite(self.weight) or self.weight < 0:
@@ -79,7 +82,7 @@ class CurriculumRule6:
     weight: float = 0.7
     enabled: bool = True
 
-    def validate(self) -> "CurriculumRule6":
+    def validate(self) -> CurriculumRule6:
         if not self.name.strip():
             raise ValueError("rule name must not be empty")
         if not math.isfinite(self.weight) or self.weight < 0:
@@ -92,7 +95,7 @@ class CurriculumRule7:
     weight: float = 0.1
     enabled: bool = True
 
-    def validate(self) -> "CurriculumRule7":
+    def validate(self) -> CurriculumRule7:
         if not self.name.strip():
             raise ValueError("rule name must not be empty")
         if not math.isfinite(self.weight) or self.weight < 0:
@@ -105,7 +108,7 @@ class CurriculumRule8:
     weight: float = 0.2
     enabled: bool = True
 
-    def validate(self) -> "CurriculumRule8":
+    def validate(self) -> CurriculumRule8:
         if not self.name.strip():
             raise ValueError("rule name must not be empty")
         if not math.isfinite(self.weight) or self.weight < 0:
@@ -118,7 +121,7 @@ class CurriculumRule9:
     weight: float = 0.3
     enabled: bool = True
 
-    def validate(self) -> "CurriculumRule9":
+    def validate(self) -> CurriculumRule9:
         if not self.name.strip():
             raise ValueError("rule name must not be empty")
         if not math.isfinite(self.weight) or self.weight < 0:
@@ -131,7 +134,7 @@ class CurriculumRule10:
     weight: float = 0.4
     enabled: bool = True
 
-    def validate(self) -> "CurriculumRule10":
+    def validate(self) -> CurriculumRule10:
         if not self.name.strip():
             raise ValueError("rule name must not be empty")
         if not math.isfinite(self.weight) or self.weight < 0:
@@ -144,7 +147,7 @@ class CurriculumRule11:
     weight: float = 0.5
     enabled: bool = True
 
-    def validate(self) -> "CurriculumRule11":
+    def validate(self) -> CurriculumRule11:
         if not self.name.strip():
             raise ValueError("rule name must not be empty")
         if not math.isfinite(self.weight) or self.weight < 0:
@@ -157,7 +160,7 @@ class CurriculumRule12:
     weight: float = 0.6
     enabled: bool = True
 
-    def validate(self) -> "CurriculumRule12":
+    def validate(self) -> CurriculumRule12:
         if not self.name.strip():
             raise ValueError("rule name must not be empty")
         if not math.isfinite(self.weight) or self.weight < 0:
@@ -170,7 +173,7 @@ class CurriculumRule13:
     weight: float = 0.7
     enabled: bool = True
 
-    def validate(self) -> "CurriculumRule13":
+    def validate(self) -> CurriculumRule13:
         if not self.name.strip():
             raise ValueError("rule name must not be empty")
         if not math.isfinite(self.weight) or self.weight < 0:
@@ -183,7 +186,7 @@ class CurriculumRule14:
     weight: float = 0.1
     enabled: bool = True
 
-    def validate(self) -> "CurriculumRule14":
+    def validate(self) -> CurriculumRule14:
         if not self.name.strip():
             raise ValueError("rule name must not be empty")
         if not math.isfinite(self.weight) or self.weight < 0:
@@ -196,7 +199,7 @@ class CurriculumRule15:
     weight: float = 0.2
     enabled: bool = True
 
-    def validate(self) -> "CurriculumRule15":
+    def validate(self) -> CurriculumRule15:
         if not self.name.strip():
             raise ValueError("rule name must not be empty")
         if not math.isfinite(self.weight) or self.weight < 0:
@@ -209,7 +212,7 @@ class CurriculumRule16:
     weight: float = 0.3
     enabled: bool = True
 
-    def validate(self) -> "CurriculumRule16":
+    def validate(self) -> CurriculumRule16:
         if not self.name.strip():
             raise ValueError("rule name must not be empty")
         if not math.isfinite(self.weight) or self.weight < 0:
@@ -222,7 +225,7 @@ class CurriculumRule17:
     weight: float = 0.4
     enabled: bool = True
 
-    def validate(self) -> "CurriculumRule17":
+    def validate(self) -> CurriculumRule17:
         if not self.name.strip():
             raise ValueError("rule name must not be empty")
         if not math.isfinite(self.weight) or self.weight < 0:
@@ -235,7 +238,7 @@ class CurriculumRule18:
     weight: float = 0.5
     enabled: bool = True
 
-    def validate(self) -> "CurriculumRule18":
+    def validate(self) -> CurriculumRule18:
         if not self.name.strip():
             raise ValueError("rule name must not be empty")
         if not math.isfinite(self.weight) or self.weight < 0:
@@ -248,7 +251,7 @@ class CurriculumRule19:
     weight: float = 0.6
     enabled: bool = True
 
-    def validate(self) -> "CurriculumRule19":
+    def validate(self) -> CurriculumRule19:
         if not self.name.strip():
             raise ValueError("rule name must not be empty")
         if not math.isfinite(self.weight) or self.weight < 0:
@@ -261,7 +264,7 @@ class CurriculumRule20:
     weight: float = 0.7
     enabled: bool = True
 
-    def validate(self) -> "CurriculumRule20":
+    def validate(self) -> CurriculumRule20:
         if not self.name.strip():
             raise ValueError("rule name must not be empty")
         if not math.isfinite(self.weight) or self.weight < 0:
@@ -274,7 +277,7 @@ class CurriculumRule21:
     weight: float = 0.1
     enabled: bool = True
 
-    def validate(self) -> "CurriculumRule21":
+    def validate(self) -> CurriculumRule21:
         if not self.name.strip():
             raise ValueError("rule name must not be empty")
         if not math.isfinite(self.weight) or self.weight < 0:
@@ -287,7 +290,7 @@ class CurriculumRule22:
     weight: float = 0.2
     enabled: bool = True
 
-    def validate(self) -> "CurriculumRule22":
+    def validate(self) -> CurriculumRule22:
         if not self.name.strip():
             raise ValueError("rule name must not be empty")
         if not math.isfinite(self.weight) or self.weight < 0:
@@ -300,7 +303,7 @@ class CurriculumRule23:
     weight: float = 0.3
     enabled: bool = True
 
-    def validate(self) -> "CurriculumRule23":
+    def validate(self) -> CurriculumRule23:
         if not self.name.strip():
             raise ValueError("rule name must not be empty")
         if not math.isfinite(self.weight) or self.weight < 0:
@@ -313,7 +316,7 @@ class CurriculumRule24:
     weight: float = 0.4
     enabled: bool = True
 
-    def validate(self) -> "CurriculumRule24":
+    def validate(self) -> CurriculumRule24:
         if not self.name.strip():
             raise ValueError("rule name must not be empty")
         if not math.isfinite(self.weight) or self.weight < 0:
@@ -326,7 +329,7 @@ class CurriculumRule25:
     weight: float = 0.5
     enabled: bool = True
 
-    def validate(self) -> "CurriculumRule25":
+    def validate(self) -> CurriculumRule25:
         if not self.name.strip():
             raise ValueError("rule name must not be empty")
         if not math.isfinite(self.weight) or self.weight < 0:
@@ -339,7 +342,7 @@ class CurriculumRule26:
     weight: float = 0.6
     enabled: bool = True
 
-    def validate(self) -> "CurriculumRule26":
+    def validate(self) -> CurriculumRule26:
         if not self.name.strip():
             raise ValueError("rule name must not be empty")
         if not math.isfinite(self.weight) or self.weight < 0:
@@ -352,7 +355,7 @@ class CurriculumRule27:
     weight: float = 0.7
     enabled: bool = True
 
-    def validate(self) -> "CurriculumRule27":
+    def validate(self) -> CurriculumRule27:
         if not self.name.strip():
             raise ValueError("rule name must not be empty")
         if not math.isfinite(self.weight) or self.weight < 0:
@@ -365,7 +368,7 @@ class CurriculumRule28:
     weight: float = 0.1
     enabled: bool = True
 
-    def validate(self) -> "CurriculumRule28":
+    def validate(self) -> CurriculumRule28:
         if not self.name.strip():
             raise ValueError("rule name must not be empty")
         if not math.isfinite(self.weight) or self.weight < 0:
@@ -378,7 +381,7 @@ class CurriculumRule29:
     weight: float = 0.2
     enabled: bool = True
 
-    def validate(self) -> "CurriculumRule29":
+    def validate(self) -> CurriculumRule29:
         if not self.name.strip():
             raise ValueError("rule name must not be empty")
         if not math.isfinite(self.weight) or self.weight < 0:
@@ -391,7 +394,7 @@ class CurriculumRule30:
     weight: float = 0.3
     enabled: bool = True
 
-    def validate(self) -> "CurriculumRule30":
+    def validate(self) -> CurriculumRule30:
         if not self.name.strip():
             raise ValueError("rule name must not be empty")
         if not math.isfinite(self.weight) or self.weight < 0:
@@ -404,7 +407,7 @@ class CurriculumRule31:
     weight: float = 0.4
     enabled: bool = True
 
-    def validate(self) -> "CurriculumRule31":
+    def validate(self) -> CurriculumRule31:
         if not self.name.strip():
             raise ValueError("rule name must not be empty")
         if not math.isfinite(self.weight) or self.weight < 0:
@@ -417,7 +420,7 @@ class CurriculumRule32:
     weight: float = 0.5
     enabled: bool = True
 
-    def validate(self) -> "CurriculumRule32":
+    def validate(self) -> CurriculumRule32:
         if not self.name.strip():
             raise ValueError("rule name must not be empty")
         if not math.isfinite(self.weight) or self.weight < 0:
@@ -430,7 +433,7 @@ class CurriculumRule33:
     weight: float = 0.6
     enabled: bool = True
 
-    def validate(self) -> "CurriculumRule33":
+    def validate(self) -> CurriculumRule33:
         if not self.name.strip():
             raise ValueError("rule name must not be empty")
         if not math.isfinite(self.weight) or self.weight < 0:
@@ -443,7 +446,7 @@ class CurriculumRule34:
     weight: float = 0.7
     enabled: bool = True
 
-    def validate(self) -> "CurriculumRule34":
+    def validate(self) -> CurriculumRule34:
         if not self.name.strip():
             raise ValueError("rule name must not be empty")
         if not math.isfinite(self.weight) or self.weight < 0:
@@ -456,7 +459,7 @@ class CurriculumRule35:
     weight: float = 0.1
     enabled: bool = True
 
-    def validate(self) -> "CurriculumRule35":
+    def validate(self) -> CurriculumRule35:
         if not self.name.strip():
             raise ValueError("rule name must not be empty")
         if not math.isfinite(self.weight) or self.weight < 0:
@@ -469,7 +472,7 @@ class CurriculumRule36:
     weight: float = 0.2
     enabled: bool = True
 
-    def validate(self) -> "CurriculumRule36":
+    def validate(self) -> CurriculumRule36:
         if not self.name.strip():
             raise ValueError("rule name must not be empty")
         if not math.isfinite(self.weight) or self.weight < 0:
@@ -482,7 +485,7 @@ class CurriculumRule37:
     weight: float = 0.3
     enabled: bool = True
 
-    def validate(self) -> "CurriculumRule37":
+    def validate(self) -> CurriculumRule37:
         if not self.name.strip():
             raise ValueError("rule name must not be empty")
         if not math.isfinite(self.weight) or self.weight < 0:
@@ -495,7 +498,7 @@ class CurriculumRule38:
     weight: float = 0.4
     enabled: bool = True
 
-    def validate(self) -> "CurriculumRule38":
+    def validate(self) -> CurriculumRule38:
         if not self.name.strip():
             raise ValueError("rule name must not be empty")
         if not math.isfinite(self.weight) or self.weight < 0:
@@ -508,7 +511,7 @@ class CurriculumRule39:
     weight: float = 0.5
     enabled: bool = True
 
-    def validate(self) -> "CurriculumRule39":
+    def validate(self) -> CurriculumRule39:
         if not self.name.strip():
             raise ValueError("rule name must not be empty")
         if not math.isfinite(self.weight) or self.weight < 0:
@@ -521,7 +524,7 @@ class CurriculumRule40:
     weight: float = 0.6
     enabled: bool = True
 
-    def validate(self) -> "CurriculumRule40":
+    def validate(self) -> CurriculumRule40:
         if not self.name.strip():
             raise ValueError("rule name must not be empty")
         if not math.isfinite(self.weight) or self.weight < 0:
@@ -534,7 +537,7 @@ class CurriculumRule41:
     weight: float = 0.7
     enabled: bool = True
 
-    def validate(self) -> "CurriculumRule41":
+    def validate(self) -> CurriculumRule41:
         if not self.name.strip():
             raise ValueError("rule name must not be empty")
         if not math.isfinite(self.weight) or self.weight < 0:
@@ -547,7 +550,7 @@ class CurriculumRule42:
     weight: float = 0.1
     enabled: bool = True
 
-    def validate(self) -> "CurriculumRule42":
+    def validate(self) -> CurriculumRule42:
         if not self.name.strip():
             raise ValueError("rule name must not be empty")
         if not math.isfinite(self.weight) or self.weight < 0:
@@ -560,7 +563,7 @@ class CurriculumRule43:
     weight: float = 0.2
     enabled: bool = True
 
-    def validate(self) -> "CurriculumRule43":
+    def validate(self) -> CurriculumRule43:
         if not self.name.strip():
             raise ValueError("rule name must not be empty")
         if not math.isfinite(self.weight) or self.weight < 0:
@@ -573,7 +576,7 @@ class CurriculumRule44:
     weight: float = 0.3
     enabled: bool = True
 
-    def validate(self) -> "CurriculumRule44":
+    def validate(self) -> CurriculumRule44:
         if not self.name.strip():
             raise ValueError("rule name must not be empty")
         if not math.isfinite(self.weight) or self.weight < 0:
@@ -586,7 +589,7 @@ class CurriculumRule45:
     weight: float = 0.4
     enabled: bool = True
 
-    def validate(self) -> "CurriculumRule45":
+    def validate(self) -> CurriculumRule45:
         if not self.name.strip():
             raise ValueError("rule name must not be empty")
         if not math.isfinite(self.weight) or self.weight < 0:
@@ -599,7 +602,7 @@ class CurriculumRule46:
     weight: float = 0.5
     enabled: bool = True
 
-    def validate(self) -> "CurriculumRule46":
+    def validate(self) -> CurriculumRule46:
         if not self.name.strip():
             raise ValueError("rule name must not be empty")
         if not math.isfinite(self.weight) or self.weight < 0:
@@ -612,7 +615,7 @@ class CurriculumRule47:
     weight: float = 0.6
     enabled: bool = True
 
-    def validate(self) -> "CurriculumRule47":
+    def validate(self) -> CurriculumRule47:
         if not self.name.strip():
             raise ValueError("rule name must not be empty")
         if not math.isfinite(self.weight) or self.weight < 0:
@@ -625,7 +628,7 @@ class CurriculumRule48:
     weight: float = 0.7
     enabled: bool = True
 
-    def validate(self) -> "CurriculumRule48":
+    def validate(self) -> CurriculumRule48:
         if not self.name.strip():
             raise ValueError("rule name must not be empty")
         if not math.isfinite(self.weight) or self.weight < 0:
@@ -638,7 +641,7 @@ class CurriculumRule49:
     weight: float = 0.1
     enabled: bool = True
 
-    def validate(self) -> "CurriculumRule49":
+    def validate(self) -> CurriculumRule49:
         if not self.name.strip():
             raise ValueError("rule name must not be empty")
         if not math.isfinite(self.weight) or self.weight < 0:
@@ -651,7 +654,7 @@ class CurriculumRule50:
     weight: float = 0.2
     enabled: bool = True
 
-    def validate(self) -> "CurriculumRule50":
+    def validate(self) -> CurriculumRule50:
         if not self.name.strip():
             raise ValueError("rule name must not be empty")
         if not math.isfinite(self.weight) or self.weight < 0:
@@ -664,7 +667,7 @@ class CurriculumRule51:
     weight: float = 0.3
     enabled: bool = True
 
-    def validate(self) -> "CurriculumRule51":
+    def validate(self) -> CurriculumRule51:
         if not self.name.strip():
             raise ValueError("rule name must not be empty")
         if not math.isfinite(self.weight) or self.weight < 0:
@@ -677,7 +680,7 @@ class CurriculumRule52:
     weight: float = 0.4
     enabled: bool = True
 
-    def validate(self) -> "CurriculumRule52":
+    def validate(self) -> CurriculumRule52:
         if not self.name.strip():
             raise ValueError("rule name must not be empty")
         if not math.isfinite(self.weight) or self.weight < 0:
@@ -690,7 +693,7 @@ class CurriculumRule53:
     weight: float = 0.5
     enabled: bool = True
 
-    def validate(self) -> "CurriculumRule53":
+    def validate(self) -> CurriculumRule53:
         if not self.name.strip():
             raise ValueError("rule name must not be empty")
         if not math.isfinite(self.weight) or self.weight < 0:
@@ -703,7 +706,7 @@ class CurriculumRule54:
     weight: float = 0.6
     enabled: bool = True
 
-    def validate(self) -> "CurriculumRule54":
+    def validate(self) -> CurriculumRule54:
         if not self.name.strip():
             raise ValueError("rule name must not be empty")
         if not math.isfinite(self.weight) or self.weight < 0:
@@ -716,7 +719,7 @@ class CurriculumRule55:
     weight: float = 0.7
     enabled: bool = True
 
-    def validate(self) -> "CurriculumRule55":
+    def validate(self) -> CurriculumRule55:
         if not self.name.strip():
             raise ValueError("rule name must not be empty")
         if not math.isfinite(self.weight) or self.weight < 0:
@@ -729,7 +732,7 @@ class CurriculumRule56:
     weight: float = 0.1
     enabled: bool = True
 
-    def validate(self) -> "CurriculumRule56":
+    def validate(self) -> CurriculumRule56:
         if not self.name.strip():
             raise ValueError("rule name must not be empty")
         if not math.isfinite(self.weight) or self.weight < 0:
@@ -742,7 +745,7 @@ class CurriculumRule57:
     weight: float = 0.2
     enabled: bool = True
 
-    def validate(self) -> "CurriculumRule57":
+    def validate(self) -> CurriculumRule57:
         if not self.name.strip():
             raise ValueError("rule name must not be empty")
         if not math.isfinite(self.weight) or self.weight < 0:
@@ -755,7 +758,7 @@ class CurriculumRule58:
     weight: float = 0.3
     enabled: bool = True
 
-    def validate(self) -> "CurriculumRule58":
+    def validate(self) -> CurriculumRule58:
         if not self.name.strip():
             raise ValueError("rule name must not be empty")
         if not math.isfinite(self.weight) or self.weight < 0:
@@ -768,7 +771,7 @@ class CurriculumRule59:
     weight: float = 0.4
     enabled: bool = True
 
-    def validate(self) -> "CurriculumRule59":
+    def validate(self) -> CurriculumRule59:
         if not self.name.strip():
             raise ValueError("rule name must not be empty")
         if not math.isfinite(self.weight) or self.weight < 0:
@@ -781,7 +784,7 @@ class CurriculumRule60:
     weight: float = 0.5
     enabled: bool = True
 
-    def validate(self) -> "CurriculumRule60":
+    def validate(self) -> CurriculumRule60:
         if not self.name.strip():
             raise ValueError("rule name must not be empty")
         if not math.isfinite(self.weight) or self.weight < 0:
@@ -794,7 +797,7 @@ class CurriculumRule61:
     weight: float = 0.6
     enabled: bool = True
 
-    def validate(self) -> "CurriculumRule61":
+    def validate(self) -> CurriculumRule61:
         if not self.name.strip():
             raise ValueError("rule name must not be empty")
         if not math.isfinite(self.weight) or self.weight < 0:
@@ -807,7 +810,7 @@ class CurriculumRule62:
     weight: float = 0.7
     enabled: bool = True
 
-    def validate(self) -> "CurriculumRule62":
+    def validate(self) -> CurriculumRule62:
         if not self.name.strip():
             raise ValueError("rule name must not be empty")
         if not math.isfinite(self.weight) or self.weight < 0:
@@ -820,7 +823,7 @@ class CurriculumRule63:
     weight: float = 0.1
     enabled: bool = True
 
-    def validate(self) -> "CurriculumRule63":
+    def validate(self) -> CurriculumRule63:
         if not self.name.strip():
             raise ValueError("rule name must not be empty")
         if not math.isfinite(self.weight) or self.weight < 0:
@@ -833,7 +836,7 @@ class CurriculumRule64:
     weight: float = 0.2
     enabled: bool = True
 
-    def validate(self) -> "CurriculumRule64":
+    def validate(self) -> CurriculumRule64:
         if not self.name.strip():
             raise ValueError("rule name must not be empty")
         if not math.isfinite(self.weight) or self.weight < 0:
@@ -846,7 +849,7 @@ class CurriculumRule65:
     weight: float = 0.3
     enabled: bool = True
 
-    def validate(self) -> "CurriculumRule65":
+    def validate(self) -> CurriculumRule65:
         if not self.name.strip():
             raise ValueError("rule name must not be empty")
         if not math.isfinite(self.weight) or self.weight < 0:
@@ -859,7 +862,7 @@ class CurriculumRule66:
     weight: float = 0.4
     enabled: bool = True
 
-    def validate(self) -> "CurriculumRule66":
+    def validate(self) -> CurriculumRule66:
         if not self.name.strip():
             raise ValueError("rule name must not be empty")
         if not math.isfinite(self.weight) or self.weight < 0:
@@ -872,7 +875,7 @@ class CurriculumRule67:
     weight: float = 0.5
     enabled: bool = True
 
-    def validate(self) -> "CurriculumRule67":
+    def validate(self) -> CurriculumRule67:
         if not self.name.strip():
             raise ValueError("rule name must not be empty")
         if not math.isfinite(self.weight) or self.weight < 0:
@@ -885,7 +888,7 @@ class CurriculumRule68:
     weight: float = 0.6
     enabled: bool = True
 
-    def validate(self) -> "CurriculumRule68":
+    def validate(self) -> CurriculumRule68:
         if not self.name.strip():
             raise ValueError("rule name must not be empty")
         if not math.isfinite(self.weight) or self.weight < 0:
@@ -898,7 +901,7 @@ class CurriculumRule69:
     weight: float = 0.7
     enabled: bool = True
 
-    def validate(self) -> "CurriculumRule69":
+    def validate(self) -> CurriculumRule69:
         if not self.name.strip():
             raise ValueError("rule name must not be empty")
         if not math.isfinite(self.weight) or self.weight < 0:
@@ -911,7 +914,7 @@ class CurriculumRule70:
     weight: float = 0.1
     enabled: bool = True
 
-    def validate(self) -> "CurriculumRule70":
+    def validate(self) -> CurriculumRule70:
         if not self.name.strip():
             raise ValueError("rule name must not be empty")
         if not math.isfinite(self.weight) or self.weight < 0:
@@ -924,7 +927,7 @@ class CurriculumRule71:
     weight: float = 0.2
     enabled: bool = True
 
-    def validate(self) -> "CurriculumRule71":
+    def validate(self) -> CurriculumRule71:
         if not self.name.strip():
             raise ValueError("rule name must not be empty")
         if not math.isfinite(self.weight) or self.weight < 0:
@@ -937,7 +940,7 @@ class CurriculumRule72:
     weight: float = 0.3
     enabled: bool = True
 
-    def validate(self) -> "CurriculumRule72":
+    def validate(self) -> CurriculumRule72:
         if not self.name.strip():
             raise ValueError("rule name must not be empty")
         if not math.isfinite(self.weight) or self.weight < 0:
@@ -950,7 +953,7 @@ class CurriculumRule73:
     weight: float = 0.4
     enabled: bool = True
 
-    def validate(self) -> "CurriculumRule73":
+    def validate(self) -> CurriculumRule73:
         if not self.name.strip():
             raise ValueError("rule name must not be empty")
         if not math.isfinite(self.weight) or self.weight < 0:
@@ -963,7 +966,7 @@ class CurriculumRule74:
     weight: float = 0.5
     enabled: bool = True
 
-    def validate(self) -> "CurriculumRule74":
+    def validate(self) -> CurriculumRule74:
         if not self.name.strip():
             raise ValueError("rule name must not be empty")
         if not math.isfinite(self.weight) or self.weight < 0:
@@ -976,7 +979,7 @@ class CurriculumRule75:
     weight: float = 0.6
     enabled: bool = True
 
-    def validate(self) -> "CurriculumRule75":
+    def validate(self) -> CurriculumRule75:
         if not self.name.strip():
             raise ValueError("rule name must not be empty")
         if not math.isfinite(self.weight) or self.weight < 0:
@@ -989,7 +992,7 @@ class CurriculumRule76:
     weight: float = 0.7
     enabled: bool = True
 
-    def validate(self) -> "CurriculumRule76":
+    def validate(self) -> CurriculumRule76:
         if not self.name.strip():
             raise ValueError("rule name must not be empty")
         if not math.isfinite(self.weight) or self.weight < 0:
@@ -1002,7 +1005,7 @@ class CurriculumRule77:
     weight: float = 0.1
     enabled: bool = True
 
-    def validate(self) -> "CurriculumRule77":
+    def validate(self) -> CurriculumRule77:
         if not self.name.strip():
             raise ValueError("rule name must not be empty")
         if not math.isfinite(self.weight) or self.weight < 0:
@@ -1015,7 +1018,7 @@ class CurriculumRule78:
     weight: float = 0.2
     enabled: bool = True
 
-    def validate(self) -> "CurriculumRule78":
+    def validate(self) -> CurriculumRule78:
         if not self.name.strip():
             raise ValueError("rule name must not be empty")
         if not math.isfinite(self.weight) or self.weight < 0:
@@ -1028,7 +1031,7 @@ class CurriculumRule79:
     weight: float = 0.3
     enabled: bool = True
 
-    def validate(self) -> "CurriculumRule79":
+    def validate(self) -> CurriculumRule79:
         if not self.name.strip():
             raise ValueError("rule name must not be empty")
         if not math.isfinite(self.weight) or self.weight < 0:
@@ -1041,7 +1044,7 @@ class CurriculumRule80:
     weight: float = 0.4
     enabled: bool = True
 
-    def validate(self) -> "CurriculumRule80":
+    def validate(self) -> CurriculumRule80:
         if not self.name.strip():
             raise ValueError("rule name must not be empty")
         if not math.isfinite(self.weight) or self.weight < 0:

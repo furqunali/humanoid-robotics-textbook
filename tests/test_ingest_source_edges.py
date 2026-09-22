@@ -1,5 +1,7 @@
 import pytest
+
 from docs.ingest_validation import validate_source_label, validate_source_scheme
+
 
 def test_source_label_strips_outer_newlines():
     assert validate_source_label("\\nlecture notes\\n") == "lecture notes"

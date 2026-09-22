@@ -1,6 +1,6 @@
 import pytest
 
-from docs.ingest_config import IngestConfig, validate_http_url, validate_source_url
+from docs.ingest_config import IngestConfig, validate_http_url
 
 
 def test_validate_http_url_accepts_https():

@@ -1,8 +1,11 @@
 """Quality checks for deterministic textbook knowledge sources."""
 from __future__ import annotations
+
 from collections import Counter
 from dataclasses import dataclass
+
 from .knowledge_source import KnowledgeChunk
+
 
 @dataclass(frozen=True)
 class KnowledgeReport:

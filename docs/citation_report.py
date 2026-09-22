@@ -1,7 +1,10 @@
 """Deterministic citation coverage report for textbook evidence."""
 from __future__ import annotations
+
 from dataclasses import dataclass
+
 from docs.knowledge_source import KnowledgeChunk
+
 
 @dataclass(frozen=True)
 class CitationReport:

@@ -1,7 +1,10 @@
 """Stable JSON contract for textbook knowledge health."""
 from __future__ import annotations
+
 import json
+
 from docs.knowledge_health import KnowledgeHealth
+
 
 def to_json(health: KnowledgeHealth) -> str:
     # Emit keys in the fixed, stable contract order (not a plain alphabetical

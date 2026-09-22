@@ -1,7 +1,10 @@
 """Deterministic chunk-size gate for textbook knowledge."""
 from __future__ import annotations
+
 from dataclasses import dataclass
+
 from .knowledge_source import KnowledgeChunk
+
 
 @dataclass(frozen=True)
 class ChunkQualityGate:

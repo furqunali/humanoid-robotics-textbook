@@ -1,6 +1,8 @@
+import pytest
+
 from docs.knowledge_length_profile import profile_chunk_lengths
 from docs.knowledge_source import KnowledgeChunk
-import pytest
+
 
 def test_length_profile_reports_range_and_average():
     chunks = [KnowledgeChunk("a","a.md","A","abc",0), KnowledgeChunk("b","a.md","A","abcdef",1)]
