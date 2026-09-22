@@ -7,3 +7,7 @@ def test_chunk_report_rejects_overlapping_counts():
 def test_chunk_report_rejects_passed_with_quality_issues():
     payload = {"chunks": 3, "oversized": 1, "undersized": 0, "passed": True}
     assert not validate_chunk_quality_report(payload)
+
+def test_chunk_report_rejects_negative_counts():
+    payload = {"chunks": -1, "oversized": 0, "undersized": 0, "passed": True}
+    assert not validate_chunk_quality_report(payload)
