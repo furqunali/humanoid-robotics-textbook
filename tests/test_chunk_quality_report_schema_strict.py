@@ -2,7 +2,7 @@ from docs.chunk_quality_report_schema import validate_chunk_quality_report
 
 
 def _valid_report() -> dict:
-    return {"chunks": 4, "oversized": 1, "undersized": 0, "passed": True}
+    return {"chunks": 4, "oversized": 0, "undersized": 0, "passed": True}
 
 
 def test_schema_rejects_bool_as_count():
