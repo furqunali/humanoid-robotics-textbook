@@ -1,8 +1,11 @@
 """Deterministic health summary for textbook knowledge exports."""
 from __future__ import annotations
+
 from dataclasses import dataclass
+
 from docs.citation_report import CitationReport
 from docs.export_stats import ExportStats
+
 
 @dataclass(frozen=True)
 class KnowledgeHealth:

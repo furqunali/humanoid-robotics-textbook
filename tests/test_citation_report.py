@@ -1,6 +1,7 @@
 from docs.citation_report import build_citation_report
 from docs.knowledge_source import KnowledgeChunk
 
+
 def test_citation_report_calculates_coverage():
     chunks=[KnowledgeChunk("a","x.md","X","one",0),KnowledgeChunk("b","x.md","X","two",1)]
     report=build_citation_report(chunks,{"a"})

@@ -1,8 +1,11 @@
 """Export knowledge chunks in a compact retrieval-oriented JSONL format."""
 from __future__ import annotations
+
 import json
 from pathlib import Path
+
 from docs.knowledge_source import KnowledgeChunk
+
 
 def export_retrieval_chunks(chunks: list[KnowledgeChunk], destination: Path) -> int:
     seen: set[str] = set()

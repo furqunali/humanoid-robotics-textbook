@@ -19,9 +19,9 @@ import json
 import math
 import re
 from collections import Counter
+from collections.abc import Iterable
 from dataclasses import dataclass, field
 from pathlib import Path
-from typing import Iterable
 
 from docs.knowledge_source import KnowledgeChunk
 

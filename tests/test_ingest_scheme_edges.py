@@ -1,5 +1,7 @@
 import pytest
+
 from docs.ingest_validation import validate_source_scheme
+
 
 def test_scheme_accepts_uppercase_https():
     assert validate_source_scheme("HTTPS://example.com") == "https"

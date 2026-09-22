@@ -1,7 +1,8 @@
 """Numerically stable robotics helpers used by simulation and digital-twin examples."""
 from __future__ import annotations
-from dataclasses import dataclass
+
 import math
+from dataclasses import dataclass
 
 Vector3 = tuple[float, float, float]
 
@@ -49,16 +50,16 @@ class Pose:
     pitch: float = 0.0
     roll: float = 0.0
 
-    def validated(self) -> "Pose":
+    def validated(self) -> Pose:
         values = self.position + (self.yaw, self.pitch, self.roll)
         if not all(math.isfinite(float(v)) for v in values):
             raise ValueError("pose values must be finite")
         return self
 
-    def translated(self, delta: Vector3) -> "Pose":
+    def translated(self, delta: Vector3) -> Pose:
         return Pose(add(self.position, delta), self.yaw, self.pitch, self.roll)
 
-    def rotated(self, yaw: float = 0.0, pitch: float = 0.0, roll: float = 0.0) -> "Pose":
+    def rotated(self, yaw: float = 0.0, pitch: float = 0.0, roll: float = 0.0) -> Pose:
         return Pose(self.position, self.yaw + yaw, self.pitch + pitch, self.roll + roll).validated()
 
 @dataclass(frozen=True)
@@ -69,7 +70,7 @@ class Twist:
     def magnitude(self) -> float:
         return math.sqrt(norm(self.linear) ** 2 + norm(self.angular) ** 2)
 
-    def scaled(self, factor: float) -> "Twist":
+    def scaled(self, factor: float) -> Twist:
         return Twist(scale(self.linear, factor), scale(self.angular, factor))
 
 def integrate_pose(pose: Pose, twist: Twist, dt: float) -> Pose:

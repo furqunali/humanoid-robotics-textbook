@@ -1,5 +1,6 @@
 from docs.ingest_config import IngestConfig
 
+
 def test_ingest_config_stores_collection_and_vector_size():
     config = IngestConfig(collection_name="robotics", vector_size=1536)
     assert config.collection_name == "robotics"

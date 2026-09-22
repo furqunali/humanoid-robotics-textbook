@@ -28,7 +28,6 @@ class IngestConfig:
             )
         if self.qdrant_url:
             validate_http_url(self.qdrant_url)
-        return None
 
 
 def validate_http_url(url: str, field_name: str = "URL") -> str:

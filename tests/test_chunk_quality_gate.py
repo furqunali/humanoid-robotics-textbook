@@ -1,5 +1,6 @@
-from docs.knowledge_source import KnowledgeChunk
 from docs.chunk_quality_gate import evaluate_chunk_quality
+from docs.knowledge_source import KnowledgeChunk
+
 
 def c(i,text): return KnowledgeChunk(str(i),"a.md","A",text,i)
 

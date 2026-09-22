@@ -1,6 +1,11 @@
 from pathlib import Path
 
-from docs.chapter_manifest import build_manifest, chapter_title, section_count, write_manifest
+from docs.chapter_manifest import (
+    build_manifest,
+    chapter_title,
+    section_count,
+    write_manifest,
+)
 
 
 def test_manifest_collects_stable_metadata(tmp_path: Path):

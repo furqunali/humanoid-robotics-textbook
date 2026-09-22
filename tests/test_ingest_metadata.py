@@ -1,5 +1,6 @@
 from docs.ingest_metadata import validate_metadata
 
+
 def test_validate_metadata_normalizes_fields():
     item = validate_metadata(" docs/a.md ", "  Humanoid Robotics ", "  locomotion ")
     assert item.source == "docs/a.md"

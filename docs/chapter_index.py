@@ -1,6 +1,9 @@
 """Deterministic chapter index for textbook navigation."""
 from __future__ import annotations
+
 from dataclasses import dataclass
+
+
 @dataclass(frozen=True)
 class ChapterEntry:
     title: str

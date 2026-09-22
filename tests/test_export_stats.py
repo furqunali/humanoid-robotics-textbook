@@ -1,6 +1,7 @@
 from docs.export_stats import summarize_export
 from docs.knowledge_source import KnowledgeChunk
 
+
 def test_export_stats_summarizes_corpus():
     chunks=[KnowledgeChunk("a","x.md","X","one",0),KnowledgeChunk("b","y.md","Y","1234",0)]
     stats=summarize_export(chunks)

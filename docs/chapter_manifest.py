@@ -1,9 +1,11 @@
 """Create a machine-readable manifest for textbook Markdown chapters."""
 from __future__ import annotations
-from dataclasses import asdict, dataclass
+
 import json
+from collections.abc import Iterable
+from dataclasses import asdict, dataclass
 from pathlib import Path
-from typing import Iterable
+
 
 @dataclass(frozen=True)
 class ChapterEntry:
@@ -32,8 +34,7 @@ def word_count(text: str) -> int:
     """
     tokens: list[str] = []
     for line in text.splitlines():
-        if line.startswith("# "):
-            line = line[2:]
+        line = line.removeprefix("# ")
         tokens.extend(line.split())
     return len(tokens)
 

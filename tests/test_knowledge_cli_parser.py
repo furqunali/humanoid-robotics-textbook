@@ -1,5 +1,6 @@
 from docs.knowledge_cli import build_parser
 
+
 def test_cli_parser_accepts_export_options():
     args=build_parser().parse_args(["docs","out.jsonl","--max-chars","900"])
     assert str(args.root)=="docs"
