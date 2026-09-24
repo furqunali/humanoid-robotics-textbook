@@ -1,5 +1,7 @@
 # Website
 
+![Lines of code](https://img.shields.io/endpoint?url=https://raw.githubusercontent.com/furqunali/humanoid-robotics-textbook/main/.github/badges/loc.json)
+
 This website is built using [Docusaurus](https://docusaurus.io/), a modern static website generator.
 
 ## Installation
